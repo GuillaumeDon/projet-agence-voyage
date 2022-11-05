@@ -1,0 +1,32 @@
+<body>
+<table class="table">
+    <thead>
+    <tr>
+        <th>#id</th>
+        <th>Prénom</th>
+        <th>Nom</th>
+        <th>Date de création</th>
+        <th>Email</th>
+        <th>Message</th>
+        <th>Actions</th>
+    </tr>
+    </thead>
+    <tbody>
+    <?php foreach ($Allrequests as $request): ?>
+        <tr id="request-<?=htmlspecialchars($request['id_request']);?>">
+            <th scope="row"><?= $request["id_request"] ?></th>
+            <td><?= $request['status_label'] ?></td>
+            <td><?= $request['subject_label'] ?></td>
+            <td><?= $request['createdAt'] ?></td>
+            <td><?= $request['firstname']." ".$request["lastname"] ?></td>
+            <td><?= substr($request['content'], 0, 25)."[...]" ?></td>
+            <td>
+                <a href="edit.php?id=<?= $request["id_request"] ?>"class="text-warning"><i class="fa fa-file"></i></a>
+                <a href="delete.php?id=<?=$request["id_request"] ?>"class="text-danger"><i class="fa fa-trash"></i></a>
+            </td>
+        </tr>
+    <?php endforeach; ?>
+    </tbody>
+</table>
+</body>
+</html>

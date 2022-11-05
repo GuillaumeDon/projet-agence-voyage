@@ -1,0 +1,19 @@
+
+<?php foreach ($allJourneys as $journey): ?>
+    <tr>
+        <td><h2><?= $journey->getTitle(); ?></h2></td><br>
+        <td><p><?= $journey->getExtraitContent(); ?></p></td><br>
+        <td><?= $journey->getPeriod_label(); ?></td><br>
+        <td><?= $journey->getCountry_label(); ?></td><br>
+        <td><?= $journey->getCategory_label(); ?></td><br>
+
+        <td><img src ="../public/img/<?php // $journey['journey_picture_label'] ?>"></td>
+    </tr>
+
+
+<?php endforeach; ?>
+
+
+
+
+

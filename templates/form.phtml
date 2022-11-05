@@ -1,0 +1,74 @@
+<body>
+<div class="container">
+    <div class="divider"></div>
+    <div class="heading">
+        <h2><?=$title;?></h2>
+    </div>
+    <form id="contact-form" method="POST" action="../controllers/form.php" role="form">
+        <div class="row">
+            <div class="col-lg-6">
+                <label for="firstname"  class="form-label">Prénom <span class="blue">*</span></label>
+                <input id="firstname" type="text" required name="firstname" class="form-control" placeholder="Votre prénom">
+                <?php if (isset($errors['firstname'])): ?>
+                    <p class="comments"><?=$errors['firstname'];?></p>
+
+                <?php endif; ?>
+            </div>
+            <div class="col-lg-6">
+                <label for="lastname" class="form-label">Nom <span class="blue">*</span></label>
+                <input id="lastname" type="text" required name="lastname" class="form-control" placeholder="Votre Nom">
+                <?php if (isset($errors['lastname'])): ?>
+                    <p class="comments"><?=$errors['lastname'];?></p>
+                <?php endif; ?>
+            </div>
+            <div class="col-lg-6">
+                <label for="email" class="form-label">Email <span class="blue">*</span></label>
+                <input id="email" type="email" required name="email" class="form-control" placeholder="Votre Email">
+                <?php if (isset($errors['email'])): ?>
+                    <p class="comments"><?=$errors['email'];?></p>
+                <?php endif; ?>
+            </div>
+            <div class="col-lg-6">
+                <label for="phone" class="form-label">Téléphone</label>
+                <input id="phone" type="tel" name="phone" pattern="[0-9]{10}" class="form-control" placeholder="Votre Téléphone">
+                <?php if (isset($errors['phone'])): ?>
+                    <p class="comments"><?=$errors['phone'];?></p>
+                <?php endif; ?>
+            </div>
+            <div class="col-lg-6">
+                <label for="subject" class="form-label">Sujet de votre demande <span class="blue">*</span></label>
+                <select id="subject" required  name="subject" class="form-control" placeholder="Sujet de votre demande">
+                    <option value="">--Choisissez une option--</option>
+                    <option value="1">Demander un devis</option>
+                    <option value="2">Modifier un séjour </option>
+                    <option value="3">Annulation et remboursement</option>
+                    <option value="4">Autres</option>
+
+                </select>
+
+                <?php if (isset($errors['subject'])): ?>
+                    <p class="comments"><?=$errors['subject'];?></p>
+                <?php endif; ?>
+            </div>
+            <div>
+                <label for="content" class="form-label">Détails de votre demande <span class="blue">*</span></label>
+                <textarea id="content" required name="content" class="form-control" placeholder="Votre message" rows="4" minlength ="100"></textarea>
+                <?php if (isset($errors['content'])): ?>
+                    <p class="comments"><?=$errors['content'];?></p>
+                <?php endif; ?>
+
+                <?php if (isset($sucess)): ?>
+                    <p class="sucess text-success"><?=$sucess;?></p>
+                <?php endif; ?>
+            </div>
+            <div>
+                <p class="blue"><strong>* Ces informations sont requises.</strong></p>
+            </div>
+            <div>
+                <input type="submit" class="button1" value="Envoyer">
+            </div>
+        </div>
+    </form>
+</div>
+</body>
+</html>
